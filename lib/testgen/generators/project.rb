@@ -33,8 +33,10 @@ module TestGen
       end
       
       def create_cucumber_directories
+        empty_directory("#{name}/config")
         empty_directory("#{name}/features")
         empty_directory("#{name}/features/support")
+        empty_directory("#{name}/features/support/pages")
         empty_directory("#{name}/features/step_definitions")
       end
       
