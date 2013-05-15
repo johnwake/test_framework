@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'cucumber'
 gem 'rspec'
+gem 'rake'
+gem 'fig_newton'
 <% unless pageobject_driver.downcase == 'none' -%>
 gem 'page-object'
 <% end -%>
@@ -10,10 +12,8 @@ gem 'require_all'
 <% end -%>
 <% if with_gametel == 'true' -%>
 gem 'gametel'
-gem 'rake'
 <% end -%>
 <% if with_mohawk == 'true' -%>
 gem 'childprocess'
 gem 'mohawk'
-gem 'rake'
 <% end -%>
