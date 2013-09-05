@@ -8,5 +8,5 @@ gem 'growl'
 gem 'guard-rspec'
 gem 'guard-cucumber'
 
-# Specify your gem's dependencies in testgen.gemspec
+# Specify your gem's dependencies in test_framework.gemspec
 gemspec

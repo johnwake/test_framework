@@ -1,0 +1,14 @@
+source 'http://rubygems.org'
+
+gem 'cucumber'
+gem 'rspec'
+gem 'rake'
+gem 'fig_newton'
+gem 'nokogiri'
+<% if driver.downcase = 'watir' -%>
+gem 'page-object'
+<% elsif driver.downcase = 'capybara' -%>
+gem 'capybara'
+gem 'site_prism'
+<% end -%>
+

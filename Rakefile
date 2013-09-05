@@ -3,7 +3,6 @@ require 'rspec/core/rake_task'
 require 'cucumber'
 require 'cucumber/rake/task'
 
-
 Cucumber::Rake::Task.new(:features, "Run features") do |t|
   t.profile = 'default'
 end

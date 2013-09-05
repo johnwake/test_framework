@@ -34,8 +34,13 @@ Feature: Generating a project with TestGen
     """
   Scenario: Creating the features set of directories
     Then the following directories should exist:
+      | sample/config                     |
+      | sample/config/data                |
+      | sample/config/environments        |
       | sample/features                   |
       | sample/features/support           |
+      | sample/features/support/pages     |
+      | sample/features/support/data      |
       | sample/features/step_definitions  |
 
   Scenario: Generating the env.rb file

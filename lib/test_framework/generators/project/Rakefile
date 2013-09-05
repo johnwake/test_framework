@@ -1,0 +1,28 @@
+require 'rubygems'
+require 'cucumber'
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new(:features) do |t|
+  t.profile = 'default'
+end
+
+task :default => :features
+
+namespace :cuke do
+  profiles = YAML::load(File.open(File.join(Dir.pwd, 'cucumber.yml'))).keys
+  profiles.each do |profile|
+    Cucumber::Rake::Task.new(profile.to_sym) do |t|
+      t.profile = profile
+    end
+  end
+end
+
+task :help do |t|
+  message = <<-MESSAGE
+Optional flags:
+  CONFIG=ci, ft, uat, rc
+  BROWSER=firefox (default), chrome, ie
+  JUNIT_OUTPUT= Select some directory
+  MESSAGE
+  puts message
+end
