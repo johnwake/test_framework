@@ -18,15 +18,11 @@ module TestFramework
       end
       
       def create_cucumber_directories
-        #Dont need this if i remove FigNewton!! :)
-        #empty_directory("#{name}/config/data")
-        #empty_directory("#{name}/config/environments")
         empty_directory("#{name}/lib")
         empty_directory("#{name}/features")
         empty_directory("#{name}/features/support")
-        #Dont need this if i remove FigNewton!! :)
-        #empty_directory("#{name}/features/data")
         empty_directory("#{name}/features/support/pages")
+        empty_directory("#{name}/features/support/helpers")
         empty_directory("#{name}/features/step_definitions")
       end
 
@@ -35,7 +31,7 @@ module TestFramework
       end
       
       def copy_env_config
-        template "env_config.rb.tt", "#{name}/cucumber.yml"
+        template "env_config.rb.tt", "#{name}/lib/env_config.rb"
       end
 
       def copy_gemfile
@@ -52,20 +48,6 @@ module TestFramework
       
       def copy_hooks
         template "hooks.rb.tt", "#{name}/features/support/hooks.rb" unless no_driver_selected
-      end
-
-      #def create_lib_directory
-      #  empty_directory("#{name}/lib") if gen_lib
-      #end
-      
-      def create_pages_directory
-        #if gen_lib
-        #  empty_directory("#{name}/lib/pages") unless no_driver_selected
-        #  empty_directory("#{name}/lib/screens") if with_gametel == 'true' or with_mohawk == 'true'
-        #else
-        #end
-        #TODO: if you are using Capybara this is not needed, so need some logic around this!
-          empty_directory("#{name}/features/support/pages") unless no_driver_selected
       end
       
       private

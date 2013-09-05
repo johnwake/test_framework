@@ -5,9 +5,9 @@ gem 'rspec'
 gem 'rake'
 gem 'fig_newton'
 gem 'nokogiri'
-<% if driver.downcase = 'watir' -%>
+<% if driver = 'watir' -%>
 gem 'page-object'
-<% elsif driver.downcase = 'capybara' -%>
+<% elsif driver = 'capybara' -%>
 gem 'capybara'
 gem 'site_prism'
 <% end -%>
