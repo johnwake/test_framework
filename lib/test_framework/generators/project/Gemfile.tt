@@ -3,12 +3,11 @@ source 'http://rubygems.org'
 gem 'cucumber'
 gem 'rspec'
 gem 'rake'
-gem 'fig_newton'
 gem 'nokogiri'
-<% if driver = 'watir' -%>
+<% if driver == 'watir' -%>
+gem 'watir'
 gem 'page-object'
-<% elsif driver = 'capybara' -%>
+<% elsif driver == 'capybara' -%>
 gem 'capybara'
 gem 'site_prism'
 <% end -%>
-

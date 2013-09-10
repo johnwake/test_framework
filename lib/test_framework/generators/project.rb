@@ -47,13 +47,11 @@ module TestFramework
       end
       
       def copy_hooks
-        template "hooks.rb.tt", "#{name}/features/support/hooks.rb" unless no_driver_selected
+        template "hooks.rb.tt", "#{name}/features/support/hooks.rb"
       end
-      
-      private
-      
-      def no_driver_selected
-        driver.downcase == 'none'
+
+      def copy_config
+        template "config.yml.tt", "#{name}/config.yml"
       end
     end
   end

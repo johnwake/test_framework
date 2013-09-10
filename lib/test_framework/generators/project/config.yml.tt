@@ -1,0 +1,6 @@
+defaults: &execution_defaults
+  USERNAME: username
+  PASSWORD: password
+ci:
+  <<: *execution_defaults
+  ADMIN_BASE_URL: http://www.google.co.uk
