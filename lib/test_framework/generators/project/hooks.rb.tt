@@ -8,15 +8,32 @@ require 'capybara/dsl'
 require 'site_prism'
 <% end %>
 
-Before do
-<% if driver == 'watir' -%>
-  @browser = Watir::Browser.new :firefox
-<% end %>
-<% if driver == 'capybara' -%>
-  @browser = Selenium::WebDriver.for :firefox
-<% end %>
+case ENV['browser']
+  when 'chrome'
+    <% if driver == 'watir' -%>
+      browser = Watir::Browser.new :chrome
+    <% end %>
+    <% if driver == 'capybara' -%>
+      browser = Selenium::WebDriver.for :chrome
+    <% end %>
+  when 'ie' then browser = Watir::Browser.new :ie
+  else
+    <% if driver == 'watir' -%>
+      browser = Watir::Browser.new :firefox
+    <% end %>
+    <% if driver == 'capybara' -%>
+      browser = Selenium::WebDriver.for :firefox
+    <% end %>
 end
 
-After do
-  @browser.close
+
+Before do
+  @browser = browser
+  @browser.window.resize_to(1024, 1020)
+end
+
+at_exit do
+  browser.close unless browser.nil?
+  @browser.close unless @browser.nil?
+  @browser.close if @browser.respond_to?(:close)
 end
